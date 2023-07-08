@@ -36,7 +36,7 @@ async function serveRequest(req, res) {
                 },
             ],
         });
-        res.status(200).send(completion.data.choices[0].message.content);
+        res.status(200).send(JSON.stringify(completion.data.choices[0].message.content));
     } catch (error) {
         // Consider adjusting the error handling logic for your use case
         if (error.response) {
@@ -55,7 +55,7 @@ async function serveRequest(req, res) {
 
 function generatePrompt(code) {
     return `${code}
-      Create unit test case code for javascript code without explaination`;
+    Write the test cases using Mocha's "describe" and "it" functions for javascript code which can be copied directly`;
 }
 
 module.exports = serveRequest;
