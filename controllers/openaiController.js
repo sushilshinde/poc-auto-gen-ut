@@ -35,6 +35,7 @@ async function serveRequest(req, res) {
                     role: "user",
                 },
             ],
+            temperature: 0
         });
         res.status(200).send(JSON.stringify(completion.data.choices[0].message.content));
     } catch (error) {
@@ -54,8 +55,9 @@ async function serveRequest(req, res) {
 }
 
 function generatePrompt(code) {
-    return `${code}
-    Write the test cases using Mocha's "describe" and "it" functions for javascript code which can be copied directly`;
+    return `generate unit test case file using mocha and chai for the javacript code delimited by "<>" with required testing library import statements assuming all the test library packages are installed. Return response format in javascript code
+    <${code}>
+    `
 }
 
 module.exports = serveRequest;

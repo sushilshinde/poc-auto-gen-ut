@@ -59,3 +59,22 @@ const response = await openai.retrieveModel("text-davinci-003");
 
 The complete documentation can be found in 
 https://platform.openai.com/docs/api-reference
+
+# Getting Started with OpenAI API Server application
+
+## Prerequisites:
+For creating OPENAI_API_KEY(i.e OpenAI API Key) follow the steps mentioned the (https://tfthacker.medium.com/how-to-get-your-own-api-key-for-using-openai-chatgpt-in-obsidian-41b7dd71f8d3)
+
+## Environment Configuration:
+Set env variables as per below syntax before running the app provided in .env.example file
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+API Server will be running on [http://localhost:4000](http://localhost:4000).\
+
+**Note: the default PORT would be 4000 if not mentioned in .env file**

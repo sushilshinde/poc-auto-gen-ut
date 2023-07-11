@@ -5,7 +5,7 @@ const serveRequest = require("./controllers/openaiController");
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 app.use(cors())
 
@@ -17,4 +17,4 @@ app.get("/", (req, res) => {
 
 app.post("/openai/generate-response", serveRequest);
 
-app.listen(4000, () => console.log(`Server listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
