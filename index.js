@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/openai/generate-response", serveRequest);
-app.get("/openai/rec", getRec);
+app.post("/openai/rec", getRec);
 
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

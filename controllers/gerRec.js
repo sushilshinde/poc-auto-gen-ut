@@ -16,20 +16,18 @@ async function getRec(req, res) {
         return;
     }
 
-    const code = null
-
     try {
         const completion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: [
                 {
-                    content: generatePrompt(code),
+                    content: generatePrompt(req.body?.criteria),
                     role: "user",
                 },
             ],
             temperature: 0
         });
-        res.status(200).send(JSON.stringify(completion.data.choices[0].message.content));
+        res.status(200).send(completion.data.choices[0].message.content);
     } catch (error) {
         // Consider adjusting the error handling logic for your use case
         if (error.response) {
@@ -46,13 +44,10 @@ async function getRec(req, res) {
     }
 }
 
-function generatePrompt(code) {
+function generatePrompt(criteria='') {
     return `Recommend top 5 frontend architecture based on the criteria mentioned below 
 
-    1. Need a single-page application
-    2. Need SEO
-    3. Need serverside state management
-    5. Community Support
+    ${criteria}
     
     Return result in JSON format without quotes:
     
