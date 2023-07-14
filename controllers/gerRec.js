@@ -44,14 +44,15 @@ async function getRec(req, res) {
     }
 }
 
-function generatePrompt(criteria='') {
+function generatePrompt(criteria = '') {
     return `Recommend top 5 frontend architecture based on the criteria mentioned below 
 
     ${criteria}
     
     Return result in JSON format without quotes:
     
-    matches :  [{
+    {
+        matches :  [{
       "name": "React.js",
       "percent_match": "..",
       "reasons": [
@@ -71,6 +72,7 @@ function generatePrompt(criteria='') {
       "drawback": "..",
       "website_url": .. 
     }]
+}
     `
 }
 
